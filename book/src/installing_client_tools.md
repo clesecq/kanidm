@@ -16,7 +16,7 @@ Kanidm currently is packaged for the following systems:
 - Arch Linux
 - CentOS Stream 9
 - Debian
-- Fedora 38
+- Fedora 41
 - NixOS
 - Ubuntu
 - Alpine Linux
@@ -93,9 +93,9 @@ metadata into the correct directory:
 
 ```bash
 # Fedora
-wget https://download.opensuse.org/repositories/network:/idm/Fedora_38/network:idm.repo
-# Centos Stream 9
-wget https://download.opensuse.org/repositories/network:/idm/CentOS_9_Stream/network:idm.repo
+curl https://download.opensuse.org/repositories/network:/idm/Fedora_$(rpm -E %fedora)/network:idm.repo | sudo tee /etc/yum.repos.d/network:idm.repo
+# Centos Stream
+wget https://download.opensuse.org/repositories/network:/idm/CentOS_$(rpm -E %rhel)_Stream/network:idm.repo | sudo tee /etc/yum.repos.d/network:idm.repo
 ```
 
 You can then install with:
